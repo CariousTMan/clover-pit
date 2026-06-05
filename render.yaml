@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: clover-pit
+    runtime: static
+    staticPublishPath: .
+    headers:
+      - path: /Build/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /*
+        name: Cross-Origin-Opener-Policy
+        value: same-origin
+      - path: /*
+        name: Cross-Origin-Embedder-Policy
+        value: require-corp
