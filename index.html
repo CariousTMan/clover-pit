@@ -127,9 +127,11 @@
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
+          if (progress === 1) { loadingText.style.display = "none"; }
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
           loadingText.style.display = "none";
+          loadingText.style.animation = "none";
         }).catch((message) => {
         });
       };
